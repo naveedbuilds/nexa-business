@@ -1,0 +1,707 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexa | Digital Agency</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #080e12;
+  color: #f8fafc;
+  line-height: 1.7;
+}
+
+:root {
+  --green: #34d399;
+  --dark: #080e12;
+  --card: #111c21;
+  --muted: #a1b1b5;
+}
+
+.container {
+  width: 85%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,14,18,.96);
+  border-bottom: 1px solid #ffffff12;
+}
+
+.navbar {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: var(--green);
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--green);
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(circle at 80% 30%, #0d59412c, transparent 35%);
+}
+
+.hero-content {
+  max-width: 700px;
+  animation: appear 1s ease;
+}
+
+.tag {
+  display: inline-block;
+  color: var(--green);
+  background: #34d39915;
+  padding: 7px 15px;
+  border-radius: 30px;
+  margin-bottom: 25px;
+  font-size: 13px;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 7vw, 75px);
+  margin-bottom: 25px;
+}
+
+.hero h1 span,
+.section-heading span {
+  color: var(--green);
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--green);
+  color: #06120d;
+  text-decoration: none;
+  padding: 13px 27px;
+  border-radius: 7px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px #34d39930;
+}
+
+section {
+  padding: 90px 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-heading h2 {
+  font-size: clamp(30px, 5vw, 44px);
+  margin-bottom: 12px;
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+.services-grid,
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid #ffffff12;
+  padding: 32px 25px;
+  border-radius: 13px;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: var(--green);
+}
+
+.number {
+  font-size: 30px;
+  color: var(--green);
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.card h3 {
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.about {
+  background: #0d171b;
+  text-align: center;
+}
+
+.about-content {
+  max-width: 750px;
+  margin: auto;
+}
+
+.about-content p {
+  color: var(--muted);
+}
+
+.testimonials-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.quote {
+  font-style: italic;
+}
+
+.quote-label {
+  color: var(--green) !important;
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+/* CONTACT FORM */
+
+.contact {
+  background: #0d171b;
+}
+
+.contact-wrapper {
+  max-width: 650px;
+  margin: auto;
+}
+
+.contact-form {
+  background: var(--card);
+  padding: 35px;
+  border-radius: 15px;
+  border: 1px solid #ffffff15;
+}
+
+.contact-form label {
+  display: block;
+  margin: 15px 0 7px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  background: #080e12;
+  color: white;
+  border: 1px solid #ffffff25;
+  border-radius: 7px;
+  outline: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--green);
+}
+
+.contact-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 22px;
+  width: 100%;
+  font-size: 16px;
+}
+
+footer {
+  padding: 25px 0;
+  border-top: 1px solid #ffffff12;
+  color: var(--muted);
+  text-align: center;
+}
+
+footer span {
+  color: var(--green);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* PROJECT SHOWCASE */
+
+
+.projects {
+  background: #080e12;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.project-card {
+  background: #111c21;
+  border: 1px solid #ffffff15;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: #34d399;
+}
+
+.project-preview {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.preview-one {
+  background: linear-gradient(135deg, #134e4a, #34d399);
+}
+
+.preview-two {
+  background: linear-gradient(135deg, #1e293b, #64748b);
+}
+
+.preview-three {
+  background: linear-gradient(135deg, #312e81, #818cf8);
+}
+
+.mockup {
+  width: 85%;
+  background: #ffffff;
+  border-radius: 9px;
+  padding: 15px;
+  color: #172033;
+  box-shadow: 0 10px 25px #00000030;
+}
+
+.mockup-bar {
+  height: 8px;
+  width: 45%;
+  background: #34d399;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+
+.mockup-line {
+  height: 5px;
+  width: 80%;
+  background: #d1d5db;
+  border-radius: 5px;
+  margin: 7px 0;
+}
+
+.project-info {
+  padding: 23px;
+}
+
+.project-info h3 {
+  margin-bottom: 9px;
+}
+
+.project-info p {
+  color: #a1b1b5;
+  font-size: 14px;
+}
+
+.project-tag {
+  display: inline-block;
+  color: #34d399;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+@media(max-width: 750px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media(max-width: 750px) {
+  .container {
+    width: 90%;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .navbar {
+    position: relative;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: #111c21;
+    flex-direction: column;
+    gap: 18px;
+    border-radius: 10px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 500px;
+  }
+
+  .services-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+
+    <div class="logo">NEXA<span>.</span></div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+      ☰
+    </button>
+
+    <nav id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-content">
+
+    <span class="tag">CREATIVE DIGITAL AGENCY</span>
+
+    <h1>
+      We Build Digital
+      <span>Experiences.</span>
+    </h1>
+
+    <p>
+      Helping brands grow with modern websites,
+      creative ideas and powerful digital experiences.
+    </p>
+
+    <a href="#contact" class="btn">Let's Talk →</a>
+
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Our <span>Services</span></h2>
+      <p>Digital solutions for modern businesses.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="card">
+        <div class="number">01</div>
+        <h3>Web Design</h3>
+        <p>Clean, beautiful and user-friendly website designs.</p>
+      </div>
+
+      <div class="card">
+        <div class="number">02</div>
+        <h3>Web Development</h3>
+        <p>Responsive websites for desktop and mobile devices.</p>
+      </div>
+
+      <div class="card">
+        <div class="number">03</div>
+        <h3>Digital Strategy</h3>
+        <p>Creative ideas to strengthen your online presence.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-content">
+
+    <div class="section-heading">
+      <h2>About <span>Nexa</span></h2>
+    </div>
+
+    <p>
+      Nexa is a fictional digital agency concept created as a
+      web development portfolio project. This demo showcases
+      modern layouts and responsive design.
+    </p>
+
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Featured <span>Projects</span></h2>
+      <p>Explore our sample creative work.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-preview preview-one">
+          <div class="mockup">
+            <div class="mockup-bar"></div>
+            <h3>Green Business</h3>
+            <div class="mockup-line"></div>
+            <div class="mockup-line"></div>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Business Website</h3>
+          <p>A modern landing page concept for a business brand.</p>
+          <span class="project-tag">HTML • CSS</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-preview preview-two">
+          <div class="mockup">
+            <div class="mockup-bar"></div>
+            <h3>Creative Studio</h3>
+            <div class="mockup-line"></div>
+            <div class="mockup-line"></div>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Creative Agency</h3>
+          <p>A clean and professional agency website concept.</p>
+          <span class="project-tag">HTML • CSS</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-preview preview-three">
+          <div class="mockup">
+            <div class="mockup-bar"></div>
+            <h3>Digital World</h3>
+            <div class="mockup-line"></div>
+            <div class="mockup-line"></div>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Digital Landing Page</h3>
+          <p>A colorful landing page design for a digital service.</p>
+          <span class="project-tag">HTML • CSS</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Sample <span>Testimonials</span></h2>
+      <p>Example testimonial cards for this demo design.</p>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="card">
+        <p class="quote">
+          "A clean and modern website concept with a great user experience."
+        </p>
+        <p class="quote-label">— Sample Review</p>
+      </div>
+
+      <div class="card">
+        <p class="quote">
+          "The design feels professional and works beautifully on mobile."
+        </p>
+        <p class="quote-label">— Sample Review</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-wrapper">
+
+    <div class="section-heading">
+      <h2>Let's <span>Connect</span></h2>
+      <p>Send us a message about your project.</p>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" placeholder="Enter subject" required>
+
+      <label for="message">Your Message</label>
+      <textarea id="message" placeholder="Write your message..." required></textarea>
+
+      <button type="submit" class="btn">Send Message →</button>
+
+    </form>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 <span>NEXA.</span> Demo Portfolio Project.
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
+
+menuBtn.addEventListener("click", function() {
+  navMenu.classList.toggle("active");
+
+  menuBtn.textContent =
+    navMenu.classList.contains("active") ? "✕" : "☰";
+});
+
+document.querySelectorAll("#navMenu a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    navMenu.classList.remove("active");
+    menuBtn.textContent = "☰";
+  });
+});
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+
+  const recipient = "hello@example.com";
+
+  const body =
+    "Name: " + name +
+    "\nEmail: " + email +
+    "\n\n" + message;
+
+  const mailto =
+    "mailto:" + recipient +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+
+  window.location.href = mailto;
+});
+</script>
+
+</body>
+</html>
